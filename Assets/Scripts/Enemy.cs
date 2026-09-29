@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMovement))]
 public class Enemy : MonoBehaviour {
     [Header("Effects")]
     [SerializeField] private ParticleSystem deathVFX;
@@ -10,11 +11,17 @@ public class Enemy : MonoBehaviour {
     [Header("Spawn Sequence Related")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer spawnIndicator;
+    [Header("Elements")]
+    [SerializeField] private Player player;
+    [Header("Debug")]
     [SerializeField] private bool gizmos;
-    [SerializeField] private GameObject player;
     private EnemyMovement movement;
     private float attackTimer;
     private bool isSpawning = false;
+
+    void Awake() {
+        movement = GetComponent<EnemyMovement>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         if (player == null) {
@@ -22,8 +29,6 @@ public class Enemy : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-        movement = GetComponent<EnemyMovement>();
-
         StartSpawnSequence();
     }
 
@@ -65,8 +70,8 @@ public class Enemy : MonoBehaviour {
     }
     private void Attack() {
         // Attack
-        Debug.Log("Attack");
         attackTimer = 0;
+        player.TakeDamage(damage);
     }
     private void Die() {
         Instantiate(deathVFX, transform.position, Quaternion.identity);

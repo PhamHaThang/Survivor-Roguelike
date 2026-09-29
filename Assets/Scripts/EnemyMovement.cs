@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
     [SerializeField] private float moveSpeed = 10f;
-    private GameObject player;
+    private Player player;
 
     void Update() {
         if (player != null)
@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour {
         transform.position += movementDirection * moveSpeed * Time.deltaTime;
     }
 
-    public void StorePlayer(GameObject player) {
+    public void StorePlayer(Player player) {
         this.player = player;
     }
 }

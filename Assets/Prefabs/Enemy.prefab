@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825744192637477926}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.2, y: 3.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
   attackRate: 0.5
   spriteRenderer: {fileID: 7430677545582728813}
   spawnIndicator: {fileID: 6577454549970957450}
-  gizmos: 1
   player: {fileID: 0}
+  gizmos: 0
 --- !u!114 &8400946782602475984
 MonoBehaviour:
   m_ObjectHideFlags: 0
